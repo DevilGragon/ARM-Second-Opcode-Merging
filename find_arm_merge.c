@@ -47,8 +47,8 @@ void main(int argc,char *argv[])
 	find_keyword_ldr=0;
 
 	file=(char *)malloc(len*sizeof(char));
-  rewind(file1);
-  fread(file,sizeof(char),len,file1);
+  	rewind(file1);
+  	fread(file,sizeof(char),len,file1);
 
 	if(file==NULL)
 	{
@@ -121,7 +121,7 @@ void main(int argc,char *argv[])
 		if(flag==2)
 		{
 			i=find_keyword_sub;
-      k=0;
+      			k=0;
 			for(j=0;file[i+j]!='\n';j++)
 			{
 				subarray[j]=file[i+j];
@@ -163,7 +163,7 @@ void main(int argc,char *argv[])
 					p=j;
 				}
 			}
-      subarray[j]=file[i+j];
+      			subarray[j]=file[i+j];
 			i=find_keyword_ldr;
 			mark=0;
 			k=0;
@@ -194,7 +194,7 @@ void main(int argc,char *argv[])
 				for(k=0;k<q+1;k++)
 				{
 					temparray[k]=ldrarray[k];
-        }
+				 }
 				//temparray[k]=ldrarray[k];
 				q++;
 				for(k=0;k<m;k++)
@@ -213,29 +213,29 @@ void main(int argc,char *argv[])
 				temparray[q+k]=']';
 				temparray[q+k+1]='\n';
 			}
-      else if((tempA[1]!=tempB[1]) || (tempA[2]!=tempB[2]))
-      {
-        flag=1;
+      			else if((tempA[1]!=tempB[1]) || (tempA[2]!=tempB[2]))
+      			{
+        			flag=1;
 				count=find_keyword_ldr+1;  //in here we add last_keyword_ldr by one because we need to avoid this ldr command because of rX dismatched.
 				for(k=0;k<3;k++)
 				{
 					tempA[k]='\0';
 					tempB[k]='\0';
 				}
-        goto loop;
-      }
+        			goto loop;
+      			}
 			for(k=0;temparray[k]!='\n';k++)
 			{
 				fprintf(file2,"%c",temparray[k]);
-        //printf("%c",temparray[k]);
+        			//printf("%c",temparray[k]);
 			}
 			flag=0;
 			space_flag=0;
-      fprintf(file2,"%c",temparray[k]);
-      count=restore;
-      find_keyword_sub=0;
-      //find_keyword_ldr=0;
-      enter_count=0;
+      			fprintf(file2,"%c",temparray[k]);
+      			count=restore;
+      			find_keyword_sub=0;
+      			//find_keyword_ldr=0;
+      			enter_count=0;
 		}
 	}
 	if((fclose(file1))!=0)
